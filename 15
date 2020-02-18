@@ -1,0 +1,30 @@
+import matplotlib.pyplot  as plt
+import numpy as np
+form scipy.integrate import odeint
+from matplotlib.animation  import ArtistAnimation 
+
+N=200
+t=np.linspace(0,4.3,N)
+
+def move_func(s,t):
+    x, v_x=e, y, v_y=s, z, v_z=m
+    dxdt=v_x
+    dv_xdt=(x/a**2)*((g-e**2/a**2-s**2/b**2-m**2/c**2)
+           /(x**2/a**4+y**2/b**4+z**2/c**4))
+    dydt=v_y
+    dv_ydt=(y/b**2)*((g-e**2/a**2-s**2/b**2-m**2/c**2)
+           /(x**2/a**4+y**2/b**4+z**2/c**4))
+    dzdt=v_z
+    dv_zdt=(-g+z/b**2)*((g-e**2/a**2-s**2/b**2-m**2/c**2)
+           /(x**2/a**4+y**2/b**4+z**2/c**4))
+return dxdt, dv_xdt, dydt, dv_ydt, dzdt, dv_zdt   
+x0=11.2
+v_x0=0
+y0=3.5
+v_y0=0
+z0=4
+v_z0=0
+s0=x0,v_x0,y0,v_y0,z0,v_z0
+g=9.8
+sol=odeint(move_func, s0, t)
+fig
